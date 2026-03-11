@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f5f5;
+  --foreground: #0b1410;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #1b4d2e;
+  --color-secondary: #b8960c;
+  --font-sans: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 }
+
+/* Scrollbar subtil em desktop */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #b8960c33 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #b8960c55;
+  border-radius: 999px;
+}
+
+/* Foco visível para acessibilidade */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(140, 111, 6, 0.4);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* Botões com ripple básico */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.45) 0,
+    transparent 60%
+  );
+  opacity: 0;
+  transform: scale(0.2);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.btn-ripple:active::after {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+/* Partículas do hero */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-particles span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+.hero-particles span:nth-child(2) {
+  top: 10%;
+  left: 70%;
+  animation-duration: 16s;
+}
+
+.hero-particles span:nth-child(3) {
+  top: 65%;
+  left: 30%;
+  animation-duration: 18s;
+}
+
+.hero-particles span:nth-child(4) {
+  top: 40%;
+  left: 85%;
+  animation-duration: 14s;
+}
+
+/* Linha decorativa para títulos */
+.section-title-underline {
+  position: relative;
+  display: inline-flex;
+}
+
+.section-title-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.6rem;
+  height: 3px;
+  width: 60px;
+  background: linear-gradient(
+    90deg,
+    #b8960c,
+    #f4e3a3,
+    #b8960c
+  );
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
+}
+
+.section-title-underline.is-visible::after {
+  transform: scaleX(1);
+}
+
