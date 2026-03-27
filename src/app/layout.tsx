@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL("https://agrotech-mz.example.com"),
   icons: {
-    icon: [{ url: "/file.svg", type: "image/svg+xml" }],
-    shortcut: ["/file.svg"],
+    icon: [{ url: "/images/logo.png", type: "image/png" }],
+    shortcut: ["/images/logo.png"],
   },
   openGraph: {
     title: "AGRO TECH MOZAMBIQUE, SU, LDA",

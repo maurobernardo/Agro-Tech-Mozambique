@@ -71,7 +71,7 @@ export function Navbar() {
         <Link href="/" className="-ml-5 flex items-center gap-3 md:-ml-12 lg:-ml-16">
           <div className="relative h-[50px] w-[160px]">
             <Image
-              src="/file.svg"
+              src="/images/logo.png"
               alt="AGRO TECH MOZAMBIQUE"
               fill
               priority
@@ -190,7 +190,7 @@ export function Navbar() {
                   <div className="absolute left-0 right-0 top-0 flex items-center justify-between border-b border-black/10 bg-white/95 px-6 py-4 backdrop-blur">
                     <div className="relative h-8 w-28">
                       <Image
-                        src="/file.svg"
+                        src="/images/logo.png"
                         alt="AGRO TECH MOZAMBIQUE"
                         fill
                         sizes="112px"
