@@ -56,7 +56,7 @@ export function Footer() {
           <p className="text-white/75">
             Nampula, Mozambique
             <br />
-            Tel: +258 XX XXX XXXX
+            Tel: +258 84 488 86 32
             <br />
             Email: info@agrotech-mz.com
           </p>
