@@ -7,8 +7,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 
 const statsConfig = [
-  { value: 500, suffix: "+", key: "partners" as const },
-  { value: 15, suffix: "+", key: "experience" as const },
+  { value: 10, suffix: "+", key: "partners" as const },
+  { value: 5, suffix: "+", key: "experience" as const },
   { value: 8, suffix: "", key: "areas" as const },
   { value: 100, suffix: "%", key: "quality" as const },
 ];
