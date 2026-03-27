@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     "consultoria técnica",
   ],
   metadataBase: new URL("https://agrotech-mz.example.com"),
+  icons: {
+    icon: [{ url: "/file.svg", type: "image/svg+xml" }],
+    shortcut: ["/file.svg"],
+  },
   openGraph: {
     title: "AGRO TECH MOZAMBIQUE, SU, LDA",
     description:
