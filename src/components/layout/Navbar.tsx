@@ -22,6 +22,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [logoSrc, setLogoSrc] = useState("/images/logo.png");
   const pathname = usePathname();
   const { lang, setLang } = useLanguage();
 
@@ -71,12 +72,13 @@ export function Navbar() {
         <Link href="/" className="-ml-5 flex items-center gap-3 md:-ml-12 lg:-ml-16">
           <div className="relative h-[50px] w-[160px]">
             <Image
-              src="/images/logo.png"
+              src={logoSrc}
               alt="AGRO TECH MOZAMBIQUE"
               fill
               priority
               sizes="160px"
               className="object-contain"
+              onError={() => setLogoSrc("/file.svg")}
             />
           </div>
         </Link>
@@ -190,11 +192,12 @@ export function Navbar() {
                   <div className="absolute left-0 right-0 top-0 flex items-center justify-between border-b border-black/10 bg-white/95 px-6 py-4 backdrop-blur">
                     <div className="relative h-8 w-28">
                       <Image
-                        src="/images/logo.png"
+                        src={logoSrc}
                         alt="AGRO TECH MOZAMBIQUE"
                         fill
                         sizes="112px"
                         className="object-contain"
+                        onError={() => setLogoSrc("/file.svg")}
                       />
                     </div>
                     <button

@@ -42,6 +42,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
+      <head>
+        <link rel="icon" href="/images/logo.png" />
+        <link rel="shortcut icon" href="/images/logo.png" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
+      </head>
       <body className={`${poppins.variable} bg-background text-foreground`}>
         <AppClientShell>{children}</AppClientShell>
       </body>
