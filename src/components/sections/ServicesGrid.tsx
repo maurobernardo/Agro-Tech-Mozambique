@@ -11,10 +11,10 @@ import { t } from "@/lib/translations";
 const serviceIcons = [ShoppingCart, Truck, LineChart, FileText];
 
 const serviceImages = [
-  "https://images.unsplash.com/photo-1589929460218-da4ba5b5c1a6?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1591447214876-7cbb09c0f2ff?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=1200&q=80",
+  "/images/comerciogrossista.jpg",
+  "/images/equipamentos.jpg",
+  "/images/consultoria.jpg",
+  "/images/administrativo.jpg",
 ];
 
 export function ServicesGrid() {

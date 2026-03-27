@@ -7,9 +7,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
+  "/images/cereais.jpg",
   "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80",
+  "/images/consultoria.jpg",
 ];
 
 export function GallerySection() {

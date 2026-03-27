@@ -90,7 +90,7 @@ export function SobrePageClient() {
         <div className="grid gap-8 rounded-3xl border-2 border-secondary bg-primary p-8 shadow-[0_10px_40px_-12px_rgba(27,77,46,0.2)] md:grid-cols-[auto_1fr] md:items-center">
           <div className="relative mx-auto aspect-square w-48 overflow-hidden rounded-2xl border-2 border-secondary shadow-lg md:w-56">
             <Image
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+              src="/images/ceo.jpeg"
               alt="CEO - AGRO TECH MOZAMBIQUE"
               fill
               sizes="224px"
@@ -129,7 +129,7 @@ export function SobrePageClient() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border-2 border-primary shadow-lg">
             <Image
-              src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=1000&q=80"
+              src="/images/consultoria.jpg"
               alt="Equipa em planeamento estratégico"
               fill
               sizes="(min-width: 768px) 380px, 100vw"

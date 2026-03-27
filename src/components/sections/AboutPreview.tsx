@@ -34,7 +34,7 @@ export function AboutPreview() {
         >
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border-2 border-primary/20 bg-primary/90 shadow-[0_20px_60px_-15px_rgba(27,77,46,0.25)]">
             <Image
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
+              src="/images/sobre.jpg"
               alt="Equipa em reunião no sector agrícola"
               fill
               sizes="(min-width: 1024px) 380px, 100vw"

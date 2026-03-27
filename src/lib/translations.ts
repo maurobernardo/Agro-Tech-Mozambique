@@ -216,10 +216,10 @@ export const t = {
       badge: { pt: "Liderança", en: "Leadership" },
       role: { pt: "Director Geral", en: "CEO" },
       ceoDesc: {
-        pt: "Descrição do CEO e da sua visão para a empresa. Adicione aqui o texto que melhor representa o perfil e as convicções do líder da AGRO TECH MOZAMBIQUE.",
-        en: "CEO description and their vision for the company. Add here the text that best represents the profile and convictions of the leader of AGRO TECH MOZAMBIQUE.",
+        pt: "Celso André é o Director Geral da AGRO TECH MOZAMBIQUE, SU, LDA, liderando a empresa com foco em comércio grossista, consultoria técnica e apoio ao sector agroindustrial. A sua visão é fortalecer parcerias, melhorar a logística e entregar soluções práticas que gerem resultados reais para clientes e produtores.",
+        en: "Celso André is the CEO of AGRO TECH MOZAMBIQUE, SU, LDA, leading the company with a focus on wholesale trade, technical consulting and support for the agro-industrial sector. His vision is to strengthen partnerships, improve logistics and deliver practical solutions that create real results for clients and producers.",
       },
-      name: { pt: "[Nome do CEO]", en: "[CEO Name]" },
+      name: { pt: "Celso André", en: "Celso André" },
     },
     history: {
       title: { pt: "A Nossa História", en: "Our History" },
