@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 
 const phasesConfig = [
-  { key: "short" as const, period: "2025–2026" },
+  { key: "short" as const, period: "2026–2026" },
   { key: "medium" as const, period: "2027–2028" },
   { key: "long" as const, period: "2029–2030" },
 ];

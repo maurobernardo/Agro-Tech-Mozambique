@@ -17,8 +17,8 @@ export const t = {
     quickLinks: { pt: "Links Rápidos", en: "Quick Links" },
     contacts: { pt: "Contactos", en: "Contacts" },
     copyright: {
-      pt: "© 2025 AGRO TECH MOZAMBIQUE, SU, LDA. Todos os direitos reservados.",
-      en: "© 2025 AGRO TECH MOZAMBIQUE, SU, LDA. All rights reserved.",
+      pt: "© 2026 AGRO TECH MOZAMBIQUE, SU, LDA. Todos os direitos reservados.",
+      en: "© 2026 AGRO TECH MOZAMBIQUE, SU, LDA. All rights reserved.",
     },
   },
   hero: {
@@ -143,7 +143,7 @@ export const t = {
     },
   },
   goalsPreview: {
-    badge: { pt: "2025–2030", en: "2025–2030" },
+    badge: { pt: "2026–2030", en: "2026–2030" },
     title: {
       pt: "Metas Estratégicas",
       en: "Strategic Goals",
@@ -337,12 +337,12 @@ export const t = {
   },
   objectivos: {
     badge: { pt: "Plano Estratégico", en: "Strategic Plan" },
-    title: { pt: "Objectivos 2025–2030", en: "Goals 2025–2030" },
+    title: { pt: "Objectivos 2026–2030", en: "Goals 2026–2030" },
     intro: {
       pt: "Um roadmap claro, dividido em fases, para garantir um crescimento sustentado, robusto e alinhado às necessidades do mercado.",
       en: "A clear roadmap, divided into phases, to ensure sustained, robust growth aligned with market needs.",
     },
-    short: { label: { pt: "Curto Prazo", en: "Short Term" }, period: "2025–2026" },
+    short: { label: { pt: "Curto Prazo", en: "Short Term" }, period: "2026–2026" },
     medium: { label: { pt: "Médio Prazo", en: "Medium Term" }, period: "2027–2028" },
     long: { label: { pt: "Longo Prazo", en: "Long Term" }, period: "2029–2030" },
     items: [
