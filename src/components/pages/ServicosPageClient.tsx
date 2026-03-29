@@ -69,10 +69,30 @@ export function ServicosPageClient() {
                   <h2 className="mb-4 text-xl font-bold text-primary transition-colors group-hover:text-secondary">
                     {service.title[lang]}
                   </h2>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-primary/80">
+                    {t.servicos.sectionWhat[lang]}
+                  </p>
                   <ul className="space-y-3 text-sm text-foreground/80">
                     {service.bullets.map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-secondary/80" />
+                        <span>{item[lang]}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary/80">
+                    {t.servicos.sectionHow[lang]}
+                  </p>
+                  <p className="text-sm leading-relaxed text-foreground/85">
+                    {service.howHelp[lang]}
+                  </p>
+                  <p className="mt-5 mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary/80">
+                    {t.servicos.sectionBenefits[lang]}
+                  </p>
+                  <ul className="space-y-2.5 text-sm text-foreground/85">
+                    {service.benefitBullets.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-secondary/70" />
                         <span>{item[lang]}</span>
                       </li>
                     ))}

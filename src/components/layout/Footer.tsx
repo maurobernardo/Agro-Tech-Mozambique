@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
+import { formatSiteAddress, siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   const { lang } = useLanguage();
@@ -54,28 +55,53 @@ export function Footer() {
             {t.footer.contacts[lang]}
           </h4>
           <p className="text-white/75">
-            Nampula, Mozambique
+            {formatSiteAddress(lang).map((line, i) => (
+              <span key={i}>
+                {i > 0 && <br />}
+                {line}
+              </span>
+            ))}
             <br />
-            Tel: +258 84 488 86 32
             <br />
-            Email: info@agrotech-mz.com
+            <a href={`tel:${siteConfig.phoneTel}`} className="transition-colors hover:text-secondary">
+              {t.contacto.contacts.phoneLabel[lang]}: {siteConfig.phoneDisplay}
+            </a>
+            <br />
+            <a
+              href={siteConfig.social.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-secondary"
+            >
+              {t.contacto.contacts.whatsappLabel[lang]}: {siteConfig.whatsappLocal}
+            </a>
+            <br />
+            <a href={`mailto:${siteConfig.email}`} className="transition-colors hover:text-secondary">
+              {t.contacto.contacts.emailLabel[lang]}: {siteConfig.email}
+            </a>
           </p>
 
           <div className="mt-4 flex gap-3">
             <Link
-              href="#"
+              href={siteConfig.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition-transform duration-200 hover:-translate-y-1 hover:bg-secondary hover:text-primary"
             >
               <Facebook size={18} />
             </Link>
             <Link
-              href="#"
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition-transform duration-200 hover:-translate-y-1 hover:bg-secondary hover:text-primary"
             >
               <Instagram size={18} />
             </Link>
             <Link
-              href="#"
+              href={siteConfig.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition-transform duration-200 hover:-translate-y-1 hover:bg-secondary hover:text-primary"
             >
               <Linkedin size={18} />

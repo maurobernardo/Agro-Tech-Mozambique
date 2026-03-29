@@ -5,7 +5,6 @@ import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { MissionValues } from "@/components/sections/MissionValues";
 import { GoalsPreview } from "@/components/sections/GoalsPreview";
 import { GallerySection } from "@/components/sections/GallerySection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FinalCta } from "@/components/sections/FinalCta";
 
@@ -19,7 +18,6 @@ export default function Home() {
       <MissionValues />
       <GoalsPreview />
       <GallerySection />
-      <TestimonialsSection />
       <FAQSection />
       <FinalCta />
     </div>

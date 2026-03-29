@@ -6,7 +6,20 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, Linkedin, Instagram, Faceboo
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 import { PageGridBackground } from "@/components/layout/PageGridBackground";
-import { siteConfig } from "@/lib/site-config";
+import { formatSiteAddress, getGoogleMapsSearchUrl, siteConfig } from "@/lib/site-config";
+
+/** Pin alusivo ao Google Maps (vermelho #EA4335 da marca). */
+function GoogleMapsIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden>
+      <path
+        fill="#EA4335"
+        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+      />
+      <circle cx="12" cy="8.75" r="1.35" fill="#fff" />
+    </svg>
+  );
+}
 
 export function ContactoPageClient() {
   const { lang } = useLanguage();
@@ -37,167 +50,108 @@ export function ContactoPageClient() {
       </section>
 
       <section className="mx-auto max-w-6xl gap-8 px-4 pb-20 md:grid md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.7 },
-          }}
-          viewport={{ once: true, amount: 0.4 }}
-          className="space-y-5 rounded-3xl border-2 border-primary bg-white p-8 shadow-[0_10px_40px_-12px_rgba(27,77,46,0.12)] md:self-start"
-        >
-          <div className="grid gap-5 md:grid-cols-2">
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                {t.contacto.form.name[lang]}
-              </label>
-              <input
-                type="text"
-                className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
-                placeholder={t.contacto.form.namePh[lang]}
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                {t.contacto.form.company[lang]}
-              </label>
-              <input
-                type="text"
-                className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
-                placeholder={t.contacto.form.companyPh[lang]}
-              />
-            </div>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                {t.contacto.form.email[lang]}
-              </label>
-              <input
-                type="email"
-                className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
-                placeholder={t.contacto.form.emailPh[lang]}
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                {t.contacto.form.phone[lang]}
-              </label>
-              <input
-                type="tel"
-                className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
-                placeholder="+258 ..."
-              />
-            </div>
-          </div>
-
-          <div className="space-y-1.5">
-            <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              {t.contacto.form.subject[lang]}
-            </label>
-            <input
-              type="text"
-              className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
-              placeholder={t.contacto.form.subjectPh[lang]}
-            />
-          </div>
-
-          <div className="space-y-1.5">
-            <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              {t.contacto.form.message[lang]}
-            </label>
-            <textarea
-              rows={5}
-              className="w-full resize-none rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
-              placeholder={t.contacto.form.messagePh[lang]}
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="btn-ripple inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white shadow-[0_8px_24px_-6px_rgba(27,77,46,0.4)] transition-all duration-200 hover:scale-[1.02] hover:bg-secondary hover:text-primary hover:shadow-gold-glow md:w-auto"
+        <div className="flex flex-col gap-8">
+          <motion.form
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7 },
+            }}
+            viewport={{ once: true, amount: 0.4 }}
+            className="space-y-5 rounded-3xl border-2 border-primary bg-white p-8 shadow-[0_10px_40px_-12px_rgba(27,77,46,0.12)]"
           >
-            {t.contacto.form.submit[lang]}
-          </button>
-        </motion.form>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.7, delay: 0.1 },
-          }}
-          viewport={{ once: true, amount: 0.4 }}
-          className="mt-8 flex flex-col gap-6 md:mt-0"
-        >
-          <div className="rounded-3xl border-2 border-primary bg-white p-6 shadow-[0_10px_40px_-12px_rgba(27,77,46,0.12)]">
-            <h2 className="mb-4 text-lg font-semibold text-primary">
-              {t.contacto.contacts.title[lang]}
-            </h2>
-            <div className="space-y-4 text-sm text-foreground/85">
-              <p className="flex items-start gap-3">
-                <MapPin size={18} className="mt-0.5 shrink-0 text-secondary" />
-                Nampula, Moçambique
-              </p>
-              <p className="flex items-start gap-3">
-                <Phone size={18} className="mt-0.5 shrink-0 text-secondary" />
-                Tel: {siteConfig.phone}
-              </p>
-              <p className="flex items-start gap-3">
-                <Mail size={18} className="mt-0.5 shrink-0 text-secondary" />
-                {siteConfig.email}
-              </p>
-            </div>
-          </div>
-
-          <div className="rounded-3xl border-2 border-secondary bg-primary p-6 text-white shadow-[0_10px_40px_-12px_rgba(27,77,46,0.25)]">
-            <div className="mb-3 flex items-center gap-2">
-              <MapPin size={20} className="text-secondary" />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
-                {t.contacto.location.title[lang]}
-              </h3>
-            </div>
-            <p className="text-sm leading-relaxed text-white/90">
-              {t.contacto.location.desc[lang]}
-            </p>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/5 p-3 text-sm">
-                <Clock size={18} className="shrink-0 text-secondary" />
-                <div>
-                  <p className="font-semibold text-white">{t.contacto.location.hours[lang]}</p>
-                  <p className="text-white/85">{t.contacto.location.hoursValue[lang]}</p>
-                </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  {t.contacto.form.name[lang]}
+                </label>
+                <input
+                  type="text"
+                  className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                  placeholder={t.contacto.form.namePh[lang]}
+                />
               </div>
-              <div className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/5 p-3 text-sm">
-                <MessageCircle size={18} className="shrink-0 text-secondary" />
-                <div>
-                  <p className="font-semibold text-white">{t.contacto.location.response[lang]}</p>
-                  <p className="text-white/85">{t.contacto.location.responseValue[lang]}</p>
-                </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  {t.contacto.form.company[lang]}
+                </label>
+                <input
+                  type="text"
+                  className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                  placeholder={t.contacto.form.companyPh[lang]}
+                />
               </div>
             </div>
-            <div className="mt-2 rounded-xl border border-white/20 bg-white/5 p-4 text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary/90">
-                {t.contacto.location.hq[lang]}
-              </p>
-              <p className="mt-1 text-sm font-medium text-white">
-                {t.contacto.location.city[lang]}
-              </p>
-              <p className="mt-0.5 text-xs text-white/80">
-                {t.contacto.location.country[lang]}
-              </p>
-            </div>
-          </div>
 
-          <div className="rounded-3xl border-2 border-primary/60 bg-white/95 p-6 shadow-[0_8px_30px_-10px_rgba(27,77,46,0.25)] backdrop-blur-sm">
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  {t.contacto.form.email[lang]}
+                </label>
+                <input
+                  type="email"
+                  className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                  placeholder={t.contacto.form.emailPh[lang]}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  {t.contacto.form.phone[lang]}
+                </label>
+                <input
+                  type="tel"
+                  className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                  placeholder="+258 ..."
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                {t.contacto.form.subject[lang]}
+              </label>
+              <input
+                type="text"
+                className="w-full rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                placeholder={t.contacto.form.subjectPh[lang]}
+              />
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                {t.contacto.form.message[lang]}
+              </label>
+              <textarea
+                rows={5}
+                className="w-full resize-none rounded-xl border border-primary/15 bg-background/50 px-4 py-3 text-sm outline-none transition placeholder:text-foreground/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+                placeholder={t.contacto.form.messagePh[lang]}
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="btn-ripple inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-4 text-sm font-semibold text-white shadow-[0_8px_24px_-6px_rgba(27,77,46,0.4)] transition-all duration-200 hover:scale-[1.02] hover:bg-secondary hover:text-primary hover:shadow-gold-glow md:w-auto"
+            >
+              {t.contacto.form.submit[lang]}
+            </button>
+          </motion.form>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7, delay: 0.05 },
+            }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="mx-auto w-full max-w-lg rounded-3xl border-2 border-primary/60 bg-white/95 p-8 text-center shadow-[0_8px_30px_-10px_rgba(27,77,46,0.25)] backdrop-blur-sm"
+          >
+            <h3 className="text-base font-semibold uppercase tracking-wider text-primary">
               {t.contacto.social.title[lang]}
             </h3>
-            <p className="mb-4 text-xs text-foreground/70">{t.contacto.social.follow[lang]}</p>
-            <div className="flex flex-wrap gap-3">
+            <p className="mx-auto mt-2 max-w-sm text-sm text-foreground/75">{t.contacto.social.follow[lang]}</p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href={siteConfig.social.whatsapp}
                 target="_blank"
@@ -235,6 +189,104 @@ export function ContactoPageClient() {
                 aria-label="Facebook"
               >
                 <Facebook size={22} strokeWidth={1.8} />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.7, delay: 0.1 },
+          }}
+          viewport={{ once: true, amount: 0.4 }}
+          className="mt-8 flex flex-col gap-6 md:mt-0"
+        >
+          <div className="rounded-3xl border-2 border-primary bg-white p-6 shadow-[0_10px_40px_-12px_rgba(27,77,46,0.12)]">
+            <h2 className="mb-4 text-lg font-semibold text-primary">
+              {t.contacto.contacts.title[lang]}
+            </h2>
+            <div className="space-y-4 text-sm text-foreground/85">
+              <p className="flex items-start gap-3">
+                <Phone size={18} className="mt-0.5 shrink-0 text-secondary" />
+                <span>
+                  {t.contacto.contacts.phoneLabel[lang]}:{" "}
+                  <a href={`tel:${siteConfig.phoneTel}`} className="font-medium text-primary underline-offset-2 hover:underline">
+                    {siteConfig.phoneDisplay}
+                  </a>
+                </span>
+              </p>
+              <p className="flex items-start gap-3">
+                <MessageCircle size={18} className="mt-0.5 shrink-0 text-[#25D366]" />
+                <span>
+                  {t.contacto.contacts.whatsappLabel[lang]}:{" "}
+                  <a
+                    href={siteConfig.social.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-primary underline-offset-2 hover:underline"
+                  >
+                    +258 {siteConfig.whatsappLocal}
+                  </a>
+                </span>
+              </p>
+              <p className="flex items-start gap-3">
+                <Mail size={18} className="mt-0.5 shrink-0 text-secondary" />
+                <span>
+                  {t.contacto.contacts.emailLabel[lang]}:{" "}
+                  <a href={`mailto:${siteConfig.email}`} className="font-medium text-primary underline-offset-2 hover:underline">
+                    {siteConfig.email}
+                  </a>
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border-2 border-secondary bg-primary p-6 text-white shadow-[0_10px_40px_-12px_rgba(27,77,46,0.25)]">
+            <div className="mb-3 flex items-center gap-2">
+              <MapPin size={20} className="text-secondary" />
+              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
+                {t.contacto.location.title[lang]}
+              </h3>
+            </div>
+            <p className="text-sm leading-relaxed text-white/90">
+              {t.contacto.location.desc[lang]}
+            </p>
+            <div className="mt-4 space-y-3">
+              <div className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/5 p-3 text-sm">
+                <Clock size={18} className="shrink-0 text-secondary" />
+                <div>
+                  <p className="font-semibold text-white">{t.contacto.location.hours[lang]}</p>
+                  <p className="text-white/85">{t.contacto.location.hoursValue[lang]}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/5 p-3 text-sm">
+                <MessageCircle size={18} className="shrink-0 text-secondary" />
+                <div>
+                  <p className="font-semibold text-white">{t.contacto.location.response[lang]}</p>
+                  <p className="text-white/85">{t.contacto.location.responseValue[lang]}</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-2 rounded-xl border border-white/20 bg-white/5 p-4">
+              <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-secondary/90">
+                {t.contacto.location.hq[lang]}
+              </p>
+              <div className="mt-3 space-y-1.5 text-left text-sm leading-snug text-white">
+                {formatSiteAddress(lang).map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+              </div>
+              <Link
+                href={getGoogleMapsSearchUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15"
+              >
+                <GoogleMapsIcon className="h-7 w-7 shrink-0" />
+                <span>{t.contacto.location.openInMaps[lang]}</span>
               </Link>
             </div>
           </div>

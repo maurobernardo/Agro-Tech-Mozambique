@@ -8,8 +8,8 @@ import { t } from "@/lib/translations";
 
 const galleryImages = [
   "/images/cereais.jpg",
-  "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80",
-  "/images/consultoria.jpg",
+  "/images/comerciogrossista.jpg",
+  "/images/sobre.jpg",
 ];
 
 export function GallerySection() {
@@ -19,7 +19,7 @@ export function GallerySection() {
   return (
     <section
       ref={ref}
-      id="projectos"
+      id="actividades"
       className="relative overflow-hidden py-24 md:py-28 bg-gradient-to-b from-primary/20 via-primary/10 to-primary/5"
     >
       <div className="pointer-events-none absolute inset-0 opacity-25">

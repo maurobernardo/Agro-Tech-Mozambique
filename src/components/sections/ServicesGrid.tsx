@@ -73,7 +73,7 @@ export function ServicesGrid() {
           {services.map((service, index) => {
             const Icon = service.Icon;
             return (
-              <Link key={index} href="/servicos">
+              <Link key={index} href="/servicos" className="block h-full">
                 <motion.article
                   initial={{ opacity: 0, y: 40 }}
                   animate={
@@ -93,7 +93,7 @@ export function ServicesGrid() {
                     y: -8,
                     transition: { type: "spring", stiffness: 300, damping: 22 },
                   }}
-                  className="group relative flex h-[380px] flex-col overflow-hidden rounded-2xl border border-primary/20 bg-white shadow-[0_4px_24px_-4px_rgba(27,77,46,0.12)] transition-all duration-300 hover:border-secondary/50 hover:shadow-[0_20px_50px_-12px_rgba(184,150,12,0.25)]"
+                  className="group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-primary/20 bg-white shadow-[0_4px_24px_-4px_rgba(27,77,46,0.12)] transition-all duration-300 hover:border-secondary/50 hover:shadow-[0_20px_50px_-12px_rgba(184,150,12,0.25)]"
                 >
                   <div className="relative h-44 shrink-0 overflow-hidden">
                     <Image
@@ -116,7 +116,7 @@ export function ServicesGrid() {
                     <h3 className="mb-2 text-base font-bold text-primary transition-colors group-hover:text-secondary">
                       {service.title[lang]}
                     </h3>
-                    <p className="line-clamp-3 flex-1 text-sm leading-relaxed text-foreground/75">
+                    <p className="flex-1 text-sm leading-relaxed text-foreground/75">
                       {service.desc[lang]}
                     </p>
                     <div className="pt-4">

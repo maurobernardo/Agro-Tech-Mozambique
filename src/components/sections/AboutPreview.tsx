@@ -45,17 +45,6 @@ export function AboutPreview() {
           <div className="pointer-events-none absolute -left-4 -top-4 h-full w-full rounded-3xl border-2 border-secondary/50 translate-x-2 translate-y-2" />
           <div className="pointer-events-none absolute -right-6 bottom-12 h-20 w-20 rounded-full border-2 border-secondary/30" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={
-              inView
-              ? { opacity: 1, y: 0, scale: 1, transition: { delay: 0.4, duration: 0.5 } }
-              : {}
-            }
-            className="absolute -bottom-4 left-6 rounded-2xl bg-secondary px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary shadow-gold-glow"
-          >
-            {t.aboutPreview.since[lang]}
-          </motion.div>
         </motion.div>
 
           <motion.div
@@ -79,20 +68,9 @@ export function AboutPreview() {
           <p className="text-sm leading-relaxed text-foreground/80 md:text-base">
             {t.aboutPreview.intro[lang]}
           </p>
-          <div className="space-y-3 text-sm text-foreground/85">
-            <div className="flex items-start gap-3">
-              <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-[11px] text-primary">
-                ✓
-              </span>
-              <p>{t.aboutPreview.bullet1[lang]}</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-[11px] text-primary">
-                ✓
-              </span>
-              <p>{t.aboutPreview.bullet2[lang]}</p>
-            </div>
-          </div>
+          <p className="text-sm leading-relaxed text-foreground/80 md:text-base">
+            {t.aboutPreview.intro2[lang]}
+          </p>
 
           <div className="pt-2">
             <Link

@@ -7,9 +7,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
 
 const statsConfig = [
-  { value: 10, suffix: "+", key: "partners" as const },
-  { value: 5, suffix: "+", key: "experience" as const },
-  { value: 8, suffix: "", key: "areas" as const },
+  { value: 4, suffix: "", key: "serviceLines" as const },
+  { value: 48, suffix: "h", key: "response" as const },
   { value: 100, suffix: "%", key: "quality" as const },
 ];
 
@@ -23,7 +22,7 @@ export function StatsBand() {
       className="relative overflow-hidden bg-secondary py-12 md:py-14 text-primary shadow-[0_-1px_0_rgba(0,0,0,0.08)]"
     >
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08)_0%,transparent_50%)]" />
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 md:flex-row md:justify-between">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 md:flex-row md:justify-center md:gap-16 lg:gap-24">
         {statsConfig.map((stat, index) => (
           <motion.div
             key={stat.key}
