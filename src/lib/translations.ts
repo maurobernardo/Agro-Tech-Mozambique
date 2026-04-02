@@ -218,8 +218,8 @@ export const t = {
     history: {
       title: { pt: "A Nossa História", en: "Our History" },
       p1: {
-        pt: "Desde 2020, a AGRO TECH MOZAMBIQUE vem construindo uma ponte entre pequenos produtores, cooperativas e a indústria agroindustrial, actuando como parceiro estratégico em toda a cadeia de valor.",
-        en: "Since 2020, AGRO TECH MOZAMBIQUE has been building a bridge between small producers, cooperatives and the agro-industrial industry, acting as a strategic partner across the entire value chain.",
+        pt: "Desde 2025, a AGRO TECH MOZAMBIQUE vem construindo uma ponte entre pequenos produtores, cooperativas e a indústria agroindustrial, actuando como parceiro estratégico em toda a cadeia de valor.",
+        en: "Since 2025, AGRO TECH MOZAMBIQUE has been building a bridge between small producers, cooperatives and the agro-industrial industry, acting as a strategic partner across the entire value chain.",
       },
       p2: {
         pt: "Com uma equipa multidisciplinar, combinamos conhecimento profundo do contexto local com as melhores práticas internacionais em logística, comércio e tecnologia aplicada ao agro-negócio.",
@@ -230,7 +230,7 @@ export const t = {
       title: { pt: "Linha do Tempo da Empresa", en: "Company Timeline" },
       items: [
         {
-          year: "2020",
+          year: "2025",
           title: {
             pt: "Fundação da AGRO TECH MOZAMBIQUE",
             en: "Founding of AGRO TECH MOZAMBIQUE",
@@ -241,7 +241,7 @@ export const t = {
           },
         },
         {
-          year: "2022",
+          year: "2027",
           title: {
             pt: "Expansão para Comércio de Cereais",
             en: "Expansion into Grain Trading",
@@ -252,7 +252,7 @@ export const t = {
           },
         },
         {
-          year: "2024",
+          year: "2029",
           title: {
             pt: "Integração de Tecnologias",
             en: "Technology Integration",
@@ -484,13 +484,49 @@ export const t = {
     badge: { pt: "Actividades", en: "Activities" },
     title: { pt: "No terreno", en: "In the field" },
     subtitle: {
-      pt: "Imagens de campo, produtos e produtores — transparência e proximidade com quem produz em Moçambique.",
-      en: "Photos from the field, products and producers — transparency and closeness to those who produce in Mozambique.",
+      pt: "Do campo à cadeia de valor — como acompanhamos operações, produtos e equipas em Moçambique.",
+      en: "From the field to the value chain — how we follow operations, products and teams in Mozambique.",
     },
     items: [
-      { title: { pt: "Campo e produção", en: "Field and production" }, desc: { pt: "Actividades agrícolas no terreno", en: "Agricultural activities in the field" } },
-      { title: { pt: "Produtos", en: "Products" }, desc: { pt: "Cadeia de abastecimento e qualidade", en: "Supply chain and quality" } },
-      { title: { pt: "Produtores e equipas", en: "Producers and teams" }, desc: { pt: "Pessoas por detrás do agronegócio", en: "People behind agribusiness" } },
+      {
+        title: { pt: "Campo e produção", en: "Field and production" },
+        desc: { pt: "Actividades agrícolas no terreno", en: "Agricultural activities in the field" },
+        detail: {
+          pt: "Visitas e acompanhamento junto de produtores e cooperativas: avaliação de culturas, épocas agrícolas e boas práticas no local.",
+          en: "Visits and follow-up with producers and cooperatives: crop assessment, growing seasons and good on-farm practices.",
+        },
+        highlights: [
+          { pt: "Avaliação de necessidades no terreno", en: "On-site needs assessment" },
+          { pt: "Apoio a planeamento de safra", en: "Crop planning support" },
+          { pt: "Ligação com equipa técnica", en: "Link with technical staff" },
+        ],
+      },
+      {
+        title: { pt: "Produtos", en: "Products" },
+        desc: { pt: "Cadeia de abastecimento e qualidade", en: "Supply chain and quality" },
+        detail: {
+          pt: "Rastreabilidade e controlo na origem dos lotes: armazenagem, rotas de distribuição e critérios de qualidade acordados.",
+          en: "Traceability and control at batch origin: storage, distribution routes and agreed quality criteria.",
+        },
+        highlights: [
+          { pt: "Gestão de stock e lotes", en: "Stock and batch management" },
+          { pt: "Rotas e prazos de entrega", en: "Routes and delivery timelines" },
+          { pt: "Normas de qualidade aplicadas", en: "Applied quality standards" },
+        ],
+      },
+      {
+        title: { pt: "Produtores e equipas", en: "Producers and teams" },
+        desc: { pt: "Pessoas por detrás do agronegócio", en: "People behind agribusiness" },
+        detail: {
+          pt: "Valorização de quem produz e de quem opera connosco: formação, coordenação em campo e canais de comunicação claros.",
+          en: "Recognising who produces and who works with us: training, field coordination and clear communication channels.",
+        },
+        highlights: [
+          { pt: "Formação e esclarecimento", en: "Training and guidance" },
+          { pt: "Coordenação de equipas locais", en: "Local team coordination" },
+          { pt: "Contacto directo e seguimento", en: "Direct contact and follow-up" },
+        ],
+      },
     ],
   },
   testimonials: {
