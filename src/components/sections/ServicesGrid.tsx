@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight, ShoppingCart, Truck, LineChart, FileText } from "lucide-react";
@@ -10,19 +9,11 @@ import { t } from "@/lib/translations";
 
 const serviceIcons = [ShoppingCart, Truck, LineChart, FileText];
 
-const serviceImages = [
-  "/images/comerciogrossista.jpg",
-  "/images/equipamentos.jpg",
-  "/images/consultoria.jpg",
-  "/images/administrativo.jpg",
-];
-
 export function ServicesGrid() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
   const { lang } = useLanguage();
   const services = t.servicesGrid.items.map((s, i) => ({
     ...s,
-    image: serviceImages[i],
     Icon: serviceIcons[i],
   }));
 
@@ -95,19 +86,11 @@ export function ServicesGrid() {
                   }}
                   className="group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-primary/20 bg-white shadow-[0_4px_24px_-4px_rgba(27,77,46,0.12)] transition-all duration-300 hover:border-secondary/50 hover:shadow-[0_20px_50px_-12px_rgba(184,150,12,0.25)]"
                 >
-                  <div className="relative h-44 shrink-0 overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.title[lang]}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
-                    <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm transition-colors group-hover:bg-secondary group-hover:text-primary">
-                      <Icon size={20} strokeWidth={2} />
+                  <div className="flex shrink-0 items-start justify-between gap-3 border-b border-primary/10 bg-primary/[0.06] px-5 py-4">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-secondary/20 group-hover:text-secondary">
+                      <Icon size={22} strokeWidth={2} />
                     </div>
-                    <span className="absolute bottom-3 left-4 rounded-full bg-white/90 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                    <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
                       {service.badge[lang]}
                     </span>
                   </div>

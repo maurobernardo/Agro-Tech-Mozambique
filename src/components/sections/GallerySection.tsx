@@ -1,16 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/lib/translations";
-
-const galleryImages = [
-  "/images/cereais.jpg",
-  "/images/comerciogrossista.jpg",
-  "/images/sobre.jpg",
-];
 
 export function GallerySection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -82,22 +75,10 @@ export function GallerySection() {
                   : {}
               }
               whileHover={{ y: -8 }}
-              className="group overflow-hidden rounded-2xl border border-primary/20 bg-white shadow-lg transition-shadow hover:shadow-xl"
+              className="group flex min-h-[180px] flex-col justify-center overflow-hidden rounded-2xl border border-primary/20 bg-white p-6 shadow-lg transition-shadow hover:shadow-xl md:min-h-[200px]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={galleryImages[index]}
-                  alt={item.title[lang]}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                  <h3 className="text-lg font-bold">{item.title[lang]}</h3>
-                  <p className="mt-1 text-sm text-white/90">{item.desc[lang]}</p>
-                </div>
-              </div>
+              <h3 className="text-lg font-bold text-primary">{item.title[lang]}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/80">{item.desc[lang]}</p>
             </motion.article>
           ))}
         </div>
